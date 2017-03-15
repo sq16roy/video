@@ -1,0 +1,37 @@
+.wrapper{
+    width: 50%;
+    margin: 66px auto;
+    display: block;
+    overflow: hidden;
+}
+i {
+    cursor: pointer;
+}
+.fa {
+    font-size: 60px;
+}
+#media-controls {
+    position: relative;
+}
+progress {
+    position: absolute;
+    top: 10px;
+    height: 34px;
+    right: 0;
+    width: 65%;
+}
+video {
+    cursor: pointer;
+    position: relative;
+}
+.click-on-video {
+    position: absolute;
+    top: 32%;
+    left: 48%;
+    font-size: 75px;
+    color: white;
+    opacity: 0;
+}
+video .click-on-video:hover {
+    opacity: 0,8;
+}
