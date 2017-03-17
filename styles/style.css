@@ -7,31 +7,161 @@
 i {
     cursor: pointer;
 }
+.my-block{
+    display: block;
+    overflow: hidden;
+}
+.my-block input {
+    float: left;
+    width: 87%;
+    margin-right: 2%;
+    margin-top: 20px;
+}
+.my-block p {
+    float: left;
+    text-align: right;
+    width: 71px;
+    margin-top: 16px;
+    background: linear-gradient(to right, #cc3333, #7d4397);
+    background: -webkit-linear-gradient(left, rgba(204, 51, 51, 0.66), rgba(103, 58, 183, 0.81));
+    background: -o-linear-gradient(right, #cc3333, #7d4397);
+    background: -moz-linear-gradient(right, #cc3333, #7d4397);
+    font-weight: 900;
+}
+.my-block i {
+    float: left;
+    padding: 4px;
+    min-width: 55px;
+}
+#volume-bar {
+    width: 124px;
+    margin-top: 26px;
+    margin-bottom: 15px;
+    margin-left: 11px;
+}
 .fa {
     font-size: 60px;
+    background: linear-gradient(to right, #cc3333, #7d4397);
+    background: -webkit-linear-gradient(left, #cc3333, #7d4397); /*For Safari 5.1 to 6.0*/
+    background:  -o-linear-gradient(right, #cc3333, #7d4397); /*For Opera 11.1 to 12.0*/
+    background: -moz-linear-gradient(right, #cc3333, #7d4397); /*For Firefox 3.6 to 15*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 #media-controls {
     position: relative;
 }
-progress {
-    position: absolute;
-    top: 10px;
-    height: 34px;
-    right: 0;
-    width: 65%;
-}
-video {
+.video-wrapper {
     cursor: pointer;
     position: relative;
-}
-.click-on-video {
-    position: absolute;
-    top: 32%;
-    left: 48%;
-    font-size: 75px;
-    color: white;
-    opacity: 0;
 }
 video .click-on-video:hover {
     opacity: 0,8;
 }
+/*show and hide css*/
+.show-me{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 75px;
+    background: linear-gradient(to right, #cc3333, #7d4397);
+    background: -webkit-linear-gradient(left, #cc3333, #7d4397); /*For Safari 5.1 to 6.0*/
+    background:  -o-linear-gradient(right, #cc3333, #7d4397); /*For Opera 11.1 to 12.0*/
+    background: -moz-linear-gradient(right, #cc3333, #7d4397); /*For Firefox 3.6 to 15*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: 0s ease 0s normal forwards 1 fadein;
+    animation: 0s ease 0s normal forwards 1 fadein;
+}
+.hide-me{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 75px;
+    background: linear-gradient(to right, #cc3333, #7d4397);
+    background: -webkit-linear-gradient(left, #cc3333, #7d4397); /*For Safari 5.1 to 6.0*/
+    background:  -o-linear-gradient(right, #cc3333, #7d4397); /*For Opera 11.1 to 12.0*/
+    background: -moz-linear-gradient(right, #cc3333, #7d4397); /*For Firefox 3.6 to 15*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: 1.2s ease 0s normal forwards 1 fadeout;
+    animation: 1.2s ease 0s normal forwards 1 fadeout;
+}
+/*Animations*/
+@keyframes fadein{
+    0% { opacity:0; }
+    66% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-webkit-keyframes fadein{
+    0% { opacity:0; }
+    66% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@keyframes fadeout{
+    0% { opacity:1; }
+    66% { opacity:0; }
+    100% { opacity:0; }
+}
+
+@-webkit-keyframes fadeout{
+    0% { opacity:1; }
+    66% { opacity:0; }
+    100% { opacity:0; }
+}
+.video-wrapper{
+    display: block;
+    overflow: hidden;
+}
+/*style for controls range bars*/
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: linear-gradient(to right, #cc3333, #7d4397);
+    background: -webkit-linear-gradient(left, #cc3333, #7d4397); /*For Safari 5.1 to 6.0*/
+    background:  -o-linear-gradient(right, #cc3333, #7d4397); /*For Opera 11.1 to 12.0*/
+    background: -moz-linear-gradient(right, #cc3333, #7d4397); /*For Firefox 3.6 to 15*/
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+

@@ -10,22 +10,25 @@
     </head>
     <body>
         <section class="wrapper" id='media-player'>
-            <video width="100%" preload="none" poster="images/bum.jpg" id='media-video' controls onclick='togglePlayPause()'>
-                <source src="videos/Shape_Of_You.mp4" type="video/mp4">
-                <source src="https://www.youtube.com/watch?v=_dK2tDK9grQ" type="video/ogg">
-                Your browser does not support HTML5 video.
-            </video>
-            <i id='click_on_button' class="fa fa-play-circle-o click-on-video" aria-hidden="true"></i>            
+            <div class="video-wrapper" controls onclick='togglePlayPause()'>
+                <video width="100%" preload="none" poster="images/bum.jpg" id='media-video'>
+                    <source src="videos/Shape_Of_You.mp4" type="video/mp4">
+                    <source src="https://www.youtube.com/watch?v=_dK2tDK9grQ" type="video/ogg">
+                    Your browser does not support HTML5 video.
+                </video>
+                <i id='click_on_button' class="fa fa-play-circle-o show-me" aria-hidden="true"></i>  
+            </div>          
             <div id='media-controls'>
-                <div>
-                    <p id="minutes">Time</p>
+                <div class="my-block">
+                     <input type="range" id='progress-bar' min='0' max='100' value='0' step="1">  
+                    <p id="minutes">00:00/00:0</p>
                 </div>
-                <progress id='progress-bar' min='0' max='100' value='0'>0% played</progress>                
-                <i id='play-pause-button' class="fa fa-play-circle-o" aria-hidden="true" onclick='togglePlayPause()'></i>
-                <i id='stop-button' class="fa fa-stop-circle-o" aria-hidden="true" onclick='stopPlayer();'></i>
-                <i id='volume-inc-button' class="fa fa-plus" aria-hidden="true" onclick='changeVolume("+");'></i>
-                <i id='volume-dec-button' class="fa fa-minus" aria-hidden="true" onclick='changeVolume("-");'></i>
-                <i id='mute-button' class="fa fa-volume-off" aria-hidden="true" onclick='toggleMute();'></i>
+                <div class="my-block">
+                    <i id='play-pause-button' class="fa fa-play-circle-o" aria-hidden="true" onclick='togglePlayPause()'></i>
+                    <i id='stop-button' class="fa fa-stop-circle-o" aria-hidden="true" onclick='stopPlayer();'></i>
+                    <i id='mute-button' class="fa fa-volume-up" aria-hidden="true" onclick='toggleMute();'></i>
+                    <input type="range" id='volume-bar' min='0' max='1' value='1' step="0.1" class="my-volume-bar">
+                </div>       
             </div>
         </section>
         <script src="js/logic.js"></script>
