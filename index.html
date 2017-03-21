@@ -10,13 +10,14 @@
     </head>
     <body>
         <section class="wrapper" id='media-player'>
-            <div class="video-wrapper" controls onclick='togglePlayPause()'>
+            <div id="videoWrapper" class="video-wrapper" controls onclick='togglePlayPause()'>
                 <video width="100%" preload="none" poster="images/bum.jpg" id='media-video'>
                     <source src="videos/Shape_Of_You.mp4" type="video/mp4">
                     <source src="https://www.youtube.com/watch?v=_dK2tDK9grQ" type="video/ogg">
-                    Your browser does not support HTML5 video.
+                    <img src="https://i.imgur.com/vh7Zxlel.png">
                 </video>
-                <i id='click_on_button' class="fa fa-play-circle-o show-me" aria-hidden="true"></i>  
+                <i id='click_on_button' class="fa fa-play-circle-o show-me" aria-hidden="true"></i>
+                <p id="videoError" class="hideError">Something went wrong with the video!</p> 
             </div>          
             <div id='media-controls'>
                 <div class="my-block">
@@ -24,9 +25,9 @@
                     <p id="minutes">00:00/00:0</p>
                 </div>
                 <div class="my-block">
-                    <i id='play-pause-button' class="fa fa-play-circle-o" aria-hidden="true" onclick='togglePlayPause()'></i>
-                    <i id='stop-button' class="fa fa-stop-circle-o" aria-hidden="true" onclick='stopPlayer();'></i>
-                    <i id='mute-button' class="fa fa-volume-up" aria-hidden="true" onclick='toggleMute();'></i>
+                    <i id='play-pause-button' class="fa fa-play-circle-o fa-2x" aria-hidden="true" onclick='togglePlayPause()'></i>
+                    <i id='stop-button' class="fa fa-stop-circle-o fa-2x" aria-hidden="true" onclick='stopPlayer();'></i>
+                    <i id='mute-button' class="fa fa-volume-up fa-2x" aria-hidden="true" onclick='toggleMute();'></i>
                     <input type="range" id='volume-bar' min='0' max='1' value='1' step="0.1" class="my-volume-bar">
                 </div>       
             </div>

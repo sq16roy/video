@@ -19,8 +19,12 @@ function launcher() {
     myPlayer.addEventListener('timeupdate', updateProgressBar, false);
     seekBar.addEventListener('change', lookBar, false);
     seekVolume.addEventListener('change', changeVolume, false);
+    myPlayer.addEventListener('error', showErrorOnVideo, true);
 }
-
+//function to show error
+function showErrorOnVideo() {
+    document.getElementById('videoError').className = 'showError';
+};
 //function to look for changes in the progress bar
 function lookBar(){
     let getBar = myPlayer.duration*(seekBar.value/100);
@@ -30,11 +34,11 @@ function lookBar(){
 function togglePlayPause() {
     var btn = document.getElementById('play-pause-button');
     if (myPlayer.paused || myPlayer.ended) {
-        btn.className = 'fa fa-pause-circle-o';
+        btn.className = 'fa fa-pause-circle-o fa-2x';
         document.getElementById('click_on_button').className = 'fa fa-play-circle-o hide-me';
         myPlayer.play();
     } else {
-        btn.className = 'fa fa-play-circle-o';
+        btn.className = 'fa fa-play-circle-o fa-2x';
         document.getElementById('click_on_button').className = 'fa fa-pause-circle-o show-me';
         myPlayer.pause();
     }
@@ -43,7 +47,7 @@ function togglePlayPause() {
 function stopPlayer() {
     myPlayer.pause();
     myPlayer.currentTime = 0;
-    document.getElementById('play-pause-button').className = 'fa fa-play-circle-o';
+    document.getElementById('play-pause-button').className = 'fa fa-play-circle-o fa-2x';
     document.getElementById('click_on_button').className = 'fa fa-play-circle-o show-me';
 }
 //function change volume
@@ -65,13 +69,13 @@ function changeVolume() {
 //function to return the icon
 function myIcon(){
     if (seekVolume.value == 0.5) {
-        return 'fa fa-volume-down';
+        return 'fa fa-volume-down fa-2x';
     } else if(seekVolume.value >0.5){
-        return 'fa fa-volume-up';
+        return 'fa fa-volume-up fa-2x';
     } else if(seekVolume.value < 0.1){
-        return 'fa fa-volume-off';
+        return 'fa fa-volume-off fa-2x';
     } else if(seekVolume.value >0 && seekVolume.value < 0.5){
-        return 'fa fa-volume-down';
+        return 'fa fa-volume-down fa-2x';
     }
 };
 //function mute
@@ -90,7 +94,7 @@ function toggleMute() {
             seekVolume.value = tempVol; 
         }
     } else {
-        changeButtonType(btn, 'fa fa-volume-off');
+        changeButtonType(btn, 'fa fa-volume-off fa-2x');
         myPlayer.muted = true;
         seekVolume.value = 0;
     }
@@ -124,6 +128,6 @@ function updateProgressBar() {
     var percentage = Math.floor((100 / myPlayer.duration) *myPlayer.currentTime);
     progressBar.value = percentage;
     if (percentage === 100) {
-        document.getElementById('play-pause-button').className = 'fa fa-repeat';
+        document.getElementById('play-pause-button').className = 'fa fa-repeat fa-2x';
     }
 }
